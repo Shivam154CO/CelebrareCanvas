@@ -104,7 +104,6 @@ document.addEventListener('DOMContentLoaded', function() {
     addTextBtn.addEventListener('click', function() {
         const currentSlide = swiper.slides[swiper.activeIndex];
         
-        // Create new text element
         const newText = document.createElement('div');
         newText.className = 'draggable-text';
         newText.textContent = textContent.value || 'New Text';
@@ -542,4 +541,5 @@ document.addEventListener('DOMContentLoaded', function() {
         updateElementCount();
         updateCurrentSlide();
     }, 1000);
+
 });
