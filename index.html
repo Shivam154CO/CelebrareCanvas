@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebrare Canvas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Great+Vibes&family=Dancing+Script&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Celebrare Canvas</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Add Text</span>
+                    </div>
+                    <div class="section-vector">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="addTextBtn">
+                    <i class="fas fa-text-height"></i>
+                    <span>Add New Text</span>
+                    <div class="btn-glow"></div>
+                </button>
+                
+                <div class="form-group">
+                    <label for="textContent">
+                        <i class="fas fa-font"></i>
+                        Text Content
+                    </label>
+                    <div class="input-with-icon">
+                        <input type="text" id="textContent" placeholder="Enter your text here...">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-palette"></i>
+                        <span>Text Styling</span>
+                    </div>
+                    <div class="section-vector">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M7 21C4.79086 21 3 19.2091 3 17V7C3 4.79086 4.79086 3 7 3H17C19.2091 3 21 4.79086 21 7V17C21 19.2091 19.2091 21 17 21H7Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-font-case"></i>
+                        Font Family
+                    </label>
+                    <div class="font-options">
+                        <div class="font-option active" data-font="'Playfair Display', serif">
+                            <div class="font-preview">Aa</div>
+                            <span>Elegant</span>
+                        </div>
+                        <div class="font-option" data-font="'Great Vibes', cursive">
+                            <div class="font-preview">Aa</div>
+                            <span>Script</span>
+                        </div>
+                        <div class="font-option" data-font="'Dancing Script', cursive">
+                            <div class="font-preview">Aa</div>
+                            <span>Cursive</span>
+                        </div>
+                        <div class="font-option" data-font="Arial, sans-serif">
+                            <div class="font-preview">Aa</div>
+                            <span>Modern</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-text-size"></i>
+                        Font Size: <span id="fontSizeValue">24px</span>
+                    </label>
+                    <div class="slider-container">
+                        <input type="range" id="fontSize" min="12" max="72" value="24" class="styled-slider">
+                        <div class="slider-labels">
+                            <span>12</span>
+                            <span>72</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="color-grid">
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-fill-drip"></i>
+                            Text Color
+                        </label>
+                        <div class="color-picker-wrapper">
+                            <input type="color" id="textColor" value="#ffffff">
+                            <div class="color-display" id="colorPreview">
+                                <div class="color-swatch" style="background-color: #ffffff"></div>
+                                <span>#FFFFFF</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-square-full"></i>
+                            Background
+                        </label>
+                        <div class="color-picker-wrapper">
+                            <input type="color" id="bgColor" value="#8b5a2b">
+                            <div class="color-display" id="bgColorPreview">
+                                <div class="color-swatch" style="background-color: #8b5a2b"></div>
+                                <span>#8B5A2B</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-align-left"></i>
+                        Text Alignment
+                    </label>
+                    <div class="alignment-options">
+                        <button class="align-btn" data-align="left">
+                            <i class="fas fa-align-left"></i>
+                        </button>
+                        <button class="align-btn active" data-align="center">
+                            <i class="fas fa-align-center"></i>
+                        </button>
+                        <button class="align-btn" data-align="right">
+                            <i class="fas fa-align-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Text Elements</span>
+                    </div>
+                    <div class="element-count">
+                        <span id="elementCount">0</span>
+                    </div>
+                </div>
+                <div class="text-list" id="textList">
+                    <div class="empty-state">
+                        <div class="empty-icon">
+                            <i class="fas fa-text-slash"></i>
+                        </div>
+                        <p>No text elements</p>
+                        <span>Add some text to get started</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls-footer">
+                <button class="btn btn-secondary" id="resetBtn">
+                    <i class="fas fa-undo"></i>
+                    <span>Reset Slide</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="preview-header">
+                <div class="preview-info">
+                    <h2>Design Preview</h2>
+                    <p>Slide <span id="currentSlide">1</span> of 3</p>
+                </div>
+            </div>
+            
+            <div class="swiper-container-wrapper">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide slide-1">
+                            <div class="slide-overlay"></div>
+                            <div class="default-text">
+                                <i class="fas fa-star"></i>
+                                <h3>Beautiful Designs</h3>
+                                <p>Start creating your masterpiece</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide slide-2">
+                            <div class="slide-overlay"></div>
+                            <div class="default-text">
+                                <i class="fas fa-palette"></i>
+                                <h3>Creative Freedom</h3>
+                                <p>Customize every detail</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide slide-3">
+                            <div class="slide-overlay"></div>
+                            <div class="default-text">
+                                <i class="fas fa-rocket"></i>
+                                <h3>Premium Results</h3>
+                                <p>Professional designs made easy</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-button-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                </div>
+                
+                <div class="slide-indicators">
+                    <div class="indicator active" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                    <div class="indicator" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
